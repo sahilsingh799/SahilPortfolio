@@ -1,0 +1,999 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sahil Kumar Singh | Digital Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #fefaf5;
+            font-family: 'Segoe UI', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            color: #0f1419;
+            line-height: 1.5;
+            font-weight: 500;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        body.dark-mode {
+            background-color: #1a1a1a;
+            color: #e8e8e8;
+        }
+
+        /* Main container */
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 40px;
+        }
+
+        /* Navigation - exact style as reference image */
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 35px 0 25px;
+            flex-wrap: wrap;
+            border-bottom: 1px solid #e8e0d5;
+        }
+
+        .nav-left {
+            font-size: 28px;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            color: #2c3e2f;
+        }
+
+        .nav-right {
+            display: flex;
+            gap: 35px;
+        }
+
+        .nav-right a {
+            text-decoration: none;
+            color: #4a5b4c;
+            font-weight: 500;
+            font-size: 16px;
+            transition: color 0.2s;
+        }
+
+        .nav-right a:hover {
+            color: #b87c4f;
+        }
+
+        .download-resume {
+            background: #b87c4f;
+            color: white;
+            padding: 10px 22px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 14px;
+            transition: all 0.2s;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .download-resume:hover {
+            background: #a0623d;
+            transform: translateY(-2px);
+        }
+
+        /* Theme Toggle Button */
+        .theme-toggle {
+            background: none;
+            border: 1px solid #d4cbbc;
+            color: #2c3e2f;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+        }
+
+        .theme-toggle:hover {
+            background: #f5efe7;
+            border-color: #b87c4f;
+        }
+
+        body.dark-mode .theme-toggle {
+            color: #e8e8e8;
+            border-color: #444;
+        }
+
+        body.dark-mode .theme-toggle:hover {
+            background: #333;
+            border-color: #b87c4f;
+        }
+
+        /* Dark Mode Styles */
+        body.dark-mode .nav {
+            border-bottom-color: #333;
+        }
+
+        body.dark-mode .nav-left {
+            color: #ffffff;
+        }
+
+        body.dark-mode .nav-right a {
+            color: #b0b0b0;
+        }
+
+        body.dark-mode .nav-right a:hover {
+            color: #b87c4f;
+        }
+
+        body.dark-mode .info-card {
+            background: #2a2a2a;
+            border-color: #444;
+        }
+
+        body.dark-mode .info-card-label {
+            color: #888;
+        }
+
+        body.dark-mode .info-card-value {
+            color: #ffffff;
+        }
+
+        body.dark-mode .expert-card {
+            background: #2a2a2a;
+            border-color: #444;
+        }
+
+        body.dark-mode .expert-card h3 {
+            color: #ffffff;
+        }
+
+        body.dark-mode .expert-card p {
+            color: #b0b0b0;
+        }
+
+        body.dark-mode .project-card {
+            background: #2a2a2a;
+            border-color: #444;
+        }
+
+        body.dark-mode .project-info h3 {
+            color: #ffffff;
+        }
+
+        body.dark-mode .project-info p {
+            color: #b0b0b0;
+        }
+
+        body.dark-mode .tech-badge {
+            background: #333;
+            color: #b0b0b0;
+        }
+
+        body.dark-mode .about-section {
+            background: #1f1f1f;
+            border-top-color: #b87c4f;
+        }
+
+        body.dark-mode .about-section h2 {
+            color: #ffffff;
+        }
+
+        body.dark-mode .about-content {
+            background: #2a2a2a;
+            border-left-color: #b87c4f;
+        }
+
+        body.dark-mode .about-text {
+            color: #b0b0b0;
+        }
+
+        body.dark-mode .about-text strong {
+            color: #ffffff;
+        }
+
+        body.dark-mode .my-goal {
+            background: rgba(184, 124, 79, 0.15);
+            border-color: #b87c4f;
+        }
+
+        body.dark-mode .goal-text {
+            color: #b0b0b0;
+        }
+
+        body.dark-mode .goal-text strong {
+            color: #ffffff;
+        }
+
+        body.dark-mode .contact-section {
+            background: #2a2a2a;
+        }
+
+        body.dark-mode .contact-section h2 {
+            color: #ffffff;
+        }
+
+        body.dark-mode .contact-section p {
+            color: #b0b0b0;
+        }
+
+        body.dark-mode .contact-link {
+            background: #333;
+            color: #e8e8e8;
+        }
+
+        body.dark-mode .contact-link:hover {
+            background: #b87c4f;
+        }
+
+        body.dark-mode .footer {
+            color: #666;
+            border-top-color: #444;
+        }
+
+        body.dark-mode .section-title {
+            color: #ffffff;
+        }
+
+        /* Hero section - matching "Hy! I Am William Harry" style */
+        .hero {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 60px;
+            padding: 70px 0 50px;
+            flex-wrap: wrap;
+        }
+
+        .hero-left {
+            flex: 1;
+        }
+
+        .greeting {
+            font-size: 18px;
+            font-weight: 500;
+            color: #b87c4f;
+            margin-bottom: 15px;
+            letter-spacing: 1px;
+        }
+
+        .name {
+            font-size: 62px;
+            font-weight: 800;
+            line-height: 1.15;
+            margin-bottom: 20px;
+            color: #1e2a2e;
+        }
+
+        .info-cards {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 25px;
+            flex-wrap: wrap;
+        }
+
+        .info-card {
+            background: white;
+            padding: 16px 20px;
+            border-radius: 12px;
+            border: 1px solid #ece2d6;
+            text-align: center;
+            min-width: 140px;
+        }
+
+        .info-card-icon {
+            font-size: 24px;
+            margin-bottom: 8px;
+        }
+
+        .info-card-label {
+            font-size: 12px;
+            color: #7c8a7a;
+            font-weight: 500;
+            margin-bottom: 6px;
+        }
+
+        .info-card-value {
+            font-size: 16px;
+            font-weight: 700;
+            color: #2c3e2f;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 12px;
+            margin-top: 20px;
+        }
+
+        .social-link {
+            width: 45px;
+            height: 45px;
+            background: #2c3e2f;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            text-decoration: none;
+            color: white;
+            transition: all 0.2s;
+        }
+
+        .social-link:hover {
+            background: #b87c4f;
+            transform: translateY(-3px);
+        }
+
+        .description {
+            font-size: 18px;
+            color: #5a6a62;
+            line-height: 1.6;
+            margin-bottom: 35px;
+            max-width: 500px;
+        }
+
+        .btn-group {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 55px;
+        }
+
+        .btn-hire {
+            background: #1e2a2e;
+            color: white;
+            padding: 14px 32px;
+            border: none;
+            border-radius: 40px;
+            font-weight: 600;
+            font-size: 15px;
+            cursor: pointer;
+            transition: all 0.2s;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-hire:hover {
+            background: #3a4e48;
+            transform: translateY(-2px);
+        }
+
+        .btn-know {
+            background: transparent;
+            border: 1.5px solid #d4cbbc;
+            padding: 14px 32px;
+            border-radius: 40px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+            text-decoration: none;
+            color: #2c3e2f;
+            display: inline-block;
+        }
+
+        .btn-know:hover {
+            border-color: #b87c4f;
+            background: #fef7ef;
+        }
+
+        .stats {
+            display: flex;
+            gap: 55px;
+        }
+
+        .stat-number {
+            font-size: 42px;
+            font-weight: 800;
+            color: #1e2a2e;
+        }
+
+        .stat-label {
+            font-size: 15px;
+            color: #7c8a7a;
+            font-weight: 500;
+        }
+
+        .hero-right {
+            flex: 0.9;
+            background: #e8dfd3;
+            border-radius: 30px;
+            padding: 30px;
+            text-align: center;
+            min-height: 380px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        .profile-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 24px;
+        }
+
+        .avatar-icon {
+            font-size: 100px;
+            margin-bottom: 20px;
+        }
+
+        .hero-right p {
+            font-size: 16px;
+            color: #5a5a48;
+            font-weight: 500;
+        }
+
+        /* Expertise Cards - Front End Developer, UI/UX Designer, Branding Designer */
+        .expertise {
+            display: flex;
+            gap: 35px;
+            margin: 70px 0 60px;
+            flex-wrap: wrap;
+        }
+
+        .expert-card {
+            flex: 1;
+            background: white;
+            padding: 35px 28px;
+            border-radius: 24px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.02);
+            border: 1px solid #ece2d6;
+            transition: transform 0.2s;
+        }
+
+        .expert-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .expert-icon {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+
+        .expert-card h3 {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 12px;
+            color: #2c3e2f;
+        }
+
+        .expert-card p {
+            color: #6f7a6c;
+            font-size: 15px;
+            line-height: 1.5;
+        }
+
+        /* Section Titles */
+        .section-title {
+            font-size: 34px;
+            font-weight: 700;
+            margin-bottom: 40px;
+            color: #1e2a2e;
+        }
+
+        /* Portfolio/Projects Grid */
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+            margin: 50px 0 60px;
+        }
+
+        .project-card {
+            background: white;
+            border-radius: 24px;
+            overflow: hidden;
+            border: 1px solid #ece2d6;
+            transition: all 0.2s;
+        }
+
+        .project-card:hover {
+            box-shadow: 0 12px 28px rgba(0,0,0,0.05);
+        }
+
+        .project-img {
+            background: #e2d8cd;
+            height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 55px;
+        }
+
+        .project-info {
+            padding: 24px;
+        }
+
+        .project-info h3 {
+            font-size: 22px;
+            margin-bottom: 10px;
+            color: #2c3e2f;
+        }
+
+        .project-info p {
+            color: #6a7768;
+            font-size: 14px;
+            margin-bottom: 15px;
+            line-height: 1.5;
+        }
+
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .tech-badge {
+            background: #f5efe7;
+            padding: 5px 14px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 500;
+            color: #5e6b58;
+        }
+
+        /* Services & Structured Course Section */
+        .services-section {
+            display: flex;
+            gap: 50px;
+            background: #fefaf5;
+            padding: 50px 0;
+            margin: 40px 0;
+            flex-wrap: wrap;
+            border-top: 1px solid #ece2d6;
+            border-bottom: 1px solid #ece2d6;
+        }
+
+        .service-block {
+            flex: 1;
+        }
+
+        .service-block h3 {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: #2c3e2f;
+        }
+
+        .service-block p {
+            color: #5a6a62;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .service-list {
+            list-style: none;
+        }
+
+        .service-list li {
+            margin-bottom: 14px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-weight: 500;
+            color: #4a5b4c;
+        }
+
+        /* Brand Platforms Row */
+        .brand-platforms {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            padding: 30px 0;
+            margin: 20px 0;
+            border-top: 1px solid #ece2d6;
+            border-bottom: 1px solid #ece2d6;
+        }
+
+        .brand-item {
+            font-size: 18px;
+            font-weight: 600;
+            color: #8b7a64;
+            letter-spacing: 1px;
+        }
+
+        /* Training & Education Section */
+        .training-section {
+            margin: 60px 0;
+        }
+
+        .training-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .training-card {
+            background: white;
+            padding: 28px;
+            border-radius: 24px;
+            border: 1px solid #ece2d6;
+        }
+
+        .training-card h4 {
+            font-size: 20px;
+            margin-bottom: 12px;
+            color: #2c3e2f;
+        }
+
+        .training-card .date {
+            font-size: 13px;
+            color: #b87c4f;
+            margin-bottom: 12px;
+            font-weight: 500;
+        }
+
+        .training-card p {
+            color: #6a7768;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+
+        /* About Section */
+        .about-section {
+            background: #fefaf5;
+            color: #1e2a2e;
+            padding: 60px 50px;
+            margin: 60px 0;
+            border-radius: 20px;
+            border-top: 3px solid #b87c4f;
+        }
+
+        .about-section h2 {
+            font-size: 42px;
+            font-weight: 700;
+            color: #1e2a2e;
+            margin-bottom: 10px;
+            display: inline-block;
+            border-bottom: 4px solid #b87c4f;
+            padding-bottom: 10px;
+        }
+
+        .about-content {
+            margin-top: 35px;
+            background: white;
+            padding: 40px;
+            border-radius: 16px;
+            border-left: 4px solid #b87c4f;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+        }
+
+        .quote-mark {
+            font-size: 48px;
+            color: #b87c4f;
+            margin-bottom: 15px;
+        }
+
+        .about-text {
+            font-size: 15px;
+            line-height: 1.8;
+            color: #5a6a62;
+            margin-bottom: 20px;
+        }
+
+        .about-text strong {
+            color: #2c3e2f;
+            font-weight: 600;
+        }
+
+        .my-goal {
+            background: rgba(184, 124, 79, 0.08);
+            border: 2px solid #b87c4f;
+            border-radius: 12px;
+            padding: 22px 25px;
+            margin-top: 25px;
+            display: flex;
+            gap: 15px;
+        }
+
+        .goal-icon {
+            font-size: 20px;
+            color: #b87c4f;
+            min-width: 30px;
+        }
+
+        .goal-text {
+            color: #5a6a62;
+            font-size: 14px;
+            line-height: 1.7;
+        }
+
+        .goal-text strong {
+            color: #2c3e2f;
+        }
+
+        /* Contact Section */
+        .contact-section {
+            background: #1e2a2e;
+            border-radius: 40px;
+            padding: 60px 50px;
+            margin: 60px 0 50px;
+            text-align: center;
+        }
+
+        .contact-section h2 {
+            font-size: 38px;
+            color: white;
+            margin-bottom: 15px;
+        }
+
+        .contact-section p {
+            color: #cbd5cf;
+            margin-bottom: 35px;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            margin-bottom: 35px;
+        }
+
+        .contact-link {
+            background: #2f3e3a;
+            padding: 12px 28px;
+            border-radius: 50px;
+            color: white;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            transition: 0.2s;
+        }
+
+        .contact-link:hover {
+            background: #b87c4f;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 35px 0;
+            color: #8b9a8b;
+            font-size: 14px;
+            border-top: 1px solid #ece2d6;
+            margin-top: 20px;
+        }
+
+        @media (max-width: 900px) {
+            .container {
+                padding: 0 25px;
+            }
+            .name {
+                font-size: 42px;
+            }
+            .hero {
+                flex-direction: column;
+            }
+            .nav-right {
+                gap: 20px;
+            }
+            .stats {
+                gap: 35px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Navigation exactly as reference: Harry. Home Works About Portfolio Services Contact Me -->
+        <div class="nav">
+            <div class="nav-left">Sahil kr singh.</div>
+            <div class="nav-right">
+                <a href="#portfolio">Portfolio</a>
+                <a href="#home">Home</a>
+                <a href="#about">About</a>
+                <a href="#contact">Contact Me</a>
+                <a href="FinalCV.pdf" download="Sahil_Kumar_Singh_Resume.pdf" class="download-resume">📥 Resume</a>                <button class="theme-toggle" id="theme-toggle" title="Toggle Dark Mode">🌙</button>            </div>
+        </div>
+
+        <!-- Hero Section - matching "Hy! I Am William Harry" style with your details -->
+        <div id="home" class="hero">
+            <div class="hero-left">
+                <div class="greeting">Hy! I Am</div>
+                <div class="name">Sahil Kumar Singh</div>
+                <div class="info-cards">
+                    <div class="info-card">
+                        <div class="info-card-icon">🎓</div>
+                        <div class="info-card-label">Education</div>
+                        <div class="info-card-value">B.Tech CSE</div>
+                    </div>
+                    <div class="info-card">
+                        <div class="info-card-icon">📍</div>
+                        <div class="info-card-label">College</div>
+                        <div class="info-card-value">LPU, Punjab</div>
+                    </div>
+                    <div class="info-card">
+                        <div class="info-card-icon">⭐</div>
+                        <div class="info-card-label">CGPA</div>
+                        <div class="info-card-value">6.3/10</div>
+                    </div>
+                </div>
+                <div class="social-links">
+                    <a href="https://github.com/sahilsingh799" target="_blank" rel="noopener" class="social-link" title="GitHub">🐙</a>
+                    <a href="https://www.linkedin.com/in/sahilsingh799/" target="_blank" rel="noopener" class="social-link" title="LinkedIn">💼</a>
+                    <a href="mailto:sahilsinghkushwaha799@gmail.com" class="social-link" title="Email">✉️</a>
+                </div>
+                <div class="description">
+                </div>
+                <div class="btn-group">
+                    <a href="#contact" class="btn-hire">Hire Me</a>
+                    <a href="#about" class="btn-know">Know More</a>
+                </div>
+            </div>
+            <div class="hero-right">
+                <img src="sahil-profile.jpeg" alt="Sahil Kumar Singh" class="profile-img">
+            </div>
+        </div>
+
+        <!-- Expertise Cards: Cyber Security Enthusiastic, UI/UX Designer, Front End Developer -->
+        <div class="expertise">
+            <div class="expert-card">
+                <div class="expert-icon">✨</div>
+                <h3>Cyber Security Enthusiastic</h3>
+                <p>Passionate Cyber Security Enthusiast focused on learning and implementing secure systems and ethical hacking techniques.</p>
+            </div>
+            <div class="expert-card">
+                <div class="expert-icon">🎨</div>
+                <h3>UI/UX Designer</h3>
+                <p>User-centered design, wireframing, prototyping, and creating seamless digital experiences.</p>
+            </div>
+            <div class="expert-card">
+                <div class="expert-icon">💻</div>
+                <h3>Front End Developer</h3>
+                <p>HTML, CSS, Tailwind CSS, JavaScript — crafting responsive, performant web interfaces with modern frameworks.</p>
+            </div>
+        </div>
+
+        <!-- About Me Section -->
+        <div id="about" class="about-section">
+            <h2>About Me</h2>
+            <div class="about-content">
+                <div class="quote-mark">❝</div>
+                <p class="about-text">
+                    I am a <strong>Computer Science undergraduate</strong> at <strong>Lovely Professional University</strong> with a strong interest in <strong>cyber security, UI/UX design, and full stack development</strong>. I enjoy creating secure, user-friendly, and scalable applications that solve real-world problems while continuously improving my technical and creative skills.
+                </p>
+                <p class="about-text">
+                    I have built a strong foundation in core computer science subjects such as <strong>Data Structures, Operating Systems, DBMS, and Computer Networks</strong>, with experience in <strong>Java, JavaScript, and Python</strong>. I also have hands-on exposure to <strong>web development, UI/UX design principles, and cloud platforms like AWS</strong>, along with a growing interest in <strong>ethical hacking and application security</strong>.
+                </p>
+                <p class="about-text">
+                    I strongly believe in <strong>learning by building</strong>, which motivates me to actively work on projects involving secure web applications, intuitive user interfaces, and full stack systems, while continuously sharpening my problem-solving abilities.
+                </p>
+                <div class="my-goal">
+                    <div class="goal-icon">🎯</div>
+                    <div class="goal-text">
+                        <strong>My Goal:</strong> To grow as a software developer and UI/UX Designer, contribute to impactful solutions, and continuously explore emerging technologies.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Portfolio Section with your actual projects from CV -->
+        <div id="portfolio">
+            <h2 class="section-title">🎯 Portfolio</h2>
+            <div class="portfolio-grid">
+                <div class="project-card">
+                    <div class="project-img">🔐</div>
+                    <div class="project-info">
+                        <h3>Password Strength Checker</h3>
+                        <p>Architected a security-focused Python application to evaluate password resilience using real-time entropy calculations and pattern recognition. Integrated validation logic to detect vulnerabilities like sequential characters and dictionary words.</p>
+                        <div class="tech-stack">
+                            <span class="tech-badge">Python</span>
+                            <span class="tech-badge">OOP</span>
+                            <span class="tech-badge">Security</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-img">👾</div>
+                    <div class="project-info">
+                        <h3>Pacman Game Clone</h3>
+                        <p>Developed a fully functional 2D arcade game using Java and Swing, implementing core mechanics like maze navigation, score tracking, lives management, and ghost AI movement logic with collision detection.</p>
+                        <div class="tech-stack">
+                            <span class="tech-badge">Java</span>
+                            <span class="tech-badge">Swing/AWT</span>
+                            <span class="tech-badge">2D Graphics</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-img">🏥</div>
+                    <div class="project-info">
+                        <h3>Generative AI Healthcare Assistant</h3>
+                        <p>Developed an AI-powered assistant integrating LLM capabilities for healthcare queries. Full-stack implementation with modern tools and prompt engineering techniques.</p>
+                        <div class="tech-stack">
+                            <span class="tech-badge">GenAI</span>
+                            <span class="tech-badge">LLM</span>
+                            <span class="tech-badge">Python</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Training & Education with your exact CV details -->
+        <div class="training-section">
+            <h2 class="section-title">Training & Education</h2>
+            <div class="training-grid">
+                <div class="training-card">
+                    <h4>Java Maestro: GUI Application Development</h4>
+                    <div class="date">May 2025 - Jul 2025</div>
+                    <p>Hands-on training building Java desktop applications using Swing and AWT. Learned layout management, event handling, JDBC connectivity with MySQL, CRUD operations, and packaging into runnable JAR.</p>
+                </div>
+                <div class="training-card">
+                    <h4>Lovely Professional University</h4>
+                    <div class="date">Aug 2023 - Present</div>
+                    <p>Bachelor of Technology - Computer Science and Engineering | CGPA: 6.3</p>
+                    <p style="margin-top: 10px;">Intermediate: 64% (Halhafiz College) | Matriculation: 54.6% (Sambhawana Awashiye Uccha Vidyalaya)</p>
+                </div>
+                <div class="training-card">
+                    <h4>Certifications & Achievements</h4>
+                    <div class="date">2025</div>
+                    <p>✔ ChatGPT-4 Prompt Engineering, Generative AI & LLM<br>✔ Computational Theory: Language Principle & Finite Automata<br>✔ Java Maestro Certification</p>
+                    <p style="margin-top: 10px;">🏆 LeetCode peak rating: 1416 | 100+ problems solved on LeetCode, GFG & HackerRank</p>
+                    <p style="margin-top: 12px; font-weight: 600;">View full certification documents:</p>
+                    <p><a href="https://drive.google.com/drive/folders/1-gTRtQBHPsCKcpy2ONKHs_rFybCpoI7x" target="_blank" rel="noopener" style="color: #b87c4f; text-decoration: none;">Google Drive Certifications</a></p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Portfolio Section with your actual projects from CV -->
+        <div id="contact" class="contact-section">
+            <h2>Contact Me</h2>
+            <p>Have a project in mind? Let's create something amazing together.</p>
+            <div class="contact-info">
+                <a href="mailto:sahilsinghkushwaha799@gmail.com" class="contact-link">📧 sahilsinghkushwaha799@gmail.com</a>
+                <a href="tel:+916207443872" class="contact-link">📞 +91-6207443872</a>
+                <a href="https://www.linkedin.com/in/sahilsingh799/" target="_blank" rel="noopener" class="contact-link">🔗 LinkedIn: sahilsingh799</a>
+                <a href="https://github.com/sahilsingh799" target="_blank" rel="noopener" class="contact-link">🐙 GitHub: sahilsingh799</a>
+            </div>
+            <a href="#" class="btn-hire" style="background: #b87c4f; display: inline-block;">Get in Touch →</a>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <p>© 2025 Sahil Kumar Singh — Product Designer & Developer | UI/UX Specialist | Based in India</p>
+        </div>
+    </div>
+    <script>
+        // Theme Toggle Functionality
+        const themeToggle = document.getElementById('theme-toggle');
+        const htmlElement = document.documentElement;
+        const bodyElement = document.body;
+
+        // Check for saved theme preference or system preference
+        const currentTheme = localStorage.getItem('theme') || 'light';
+        
+        if (currentTheme === 'dark') {
+            bodyElement.classList.add('dark-mode');
+            themeToggle.textContent = '☀️';
+        } else {
+            bodyElement.classList.remove('dark-mode');
+            themeToggle.textContent = '🌙';
+        }
+
+        // Toggle theme on button click
+        themeToggle.addEventListener('click', () => {
+            bodyElement.classList.toggle('dark-mode');
+            
+            // Update button emoji
+            if (bodyElement.classList.contains('dark-mode')) {
+                localStorage.setItem('theme', 'dark');
+                themeToggle.textContent = '☀️';
+            } else {
+                localStorage.setItem('theme', 'light');
+                themeToggle.textContent = '🌙';
+            }
+        });
+    </script>
+</body>
+</html>
